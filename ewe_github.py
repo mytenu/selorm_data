@@ -18,7 +18,7 @@ def init_connection():
     return client
 
 # Initialize connection
-CLIENT = init_connection()
+clients = init_connection()
 client1=clients.open("ewe_dataset_users").sheet1
 client2 = clients.open("ewe_dataset").sheet1
 
@@ -128,4 +128,5 @@ else:
                             st.rerun()
                             break
                     if not found:
+
                         st.error("wrong login details")
