@@ -74,7 +74,7 @@ if st.session_state.logged_in:
             selected_date = st.date_input("Select date", value=date.today())
             
             # Add your data collection fields here
-            ewe = st.text_input("Enter Ewe Sentence")
+            ewe = st.text_area("Enter Ewe Sentence")
             english = st.text_area("Enter English Translation")
             
             if st.form_submit_button("Submit Data"):
@@ -130,3 +130,4 @@ else:
                     if not found:
 
                         st.error("wrong login details")
+
