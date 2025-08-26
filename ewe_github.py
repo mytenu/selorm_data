@@ -43,7 +43,8 @@ st.markdown(
 )
 
 # Define scope
-SCOPE = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+#SCOPE = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+SCOPE = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
 
 # Load credentials from Streamlit secrets
 @st.cache_resource
@@ -266,4 +267,5 @@ else:
                                 break
                         if not found:
                             st.error("Wrong login details. Please try again.")
+
 
