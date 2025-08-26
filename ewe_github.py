@@ -165,6 +165,7 @@ if st.session_state.logged_in:
         # Use the simpler clear_on_submit approach
         with st.form("data_collection", clear_on_submit=True):
             # Add your data collection fields here
+            select_date =  st.date_input("Date", date.today())
             ewe = st.text_area("Enter Ewe Sentence", height=100, placeholder="Type your Ewe sentence here...")
             english = st.text_area("Enter English Translation", height=100, placeholder="Type the English translation here...")
             
@@ -189,7 +190,7 @@ if st.session_state.logged_in:
                         st.warning("This translation pair already exists in your submissions!")
                     else:
                         # Save data to Google Sheets (without date)
-                        client2.append_row([
+                        client2.append_row([select_date.strftime("%Y-%m-%d"),
                             ewe.strip(),
                             english.strip(),
                             st.session_state.username,
@@ -265,3 +266,4 @@ else:
                                 break
                         if not found:
                             st.error("Wrong login details. Please try again.")
+
