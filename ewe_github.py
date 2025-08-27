@@ -168,18 +168,8 @@ if st.session_state.logged_in:
                 st.session_state.is_admin = False
                 st.rerun()
         
-        # 🔧 NEW: Show user's entries
-        if user_entries:
-            st.subheader("Your Contributions")
-            user_df = pd.DataFrame(user_entries)
-            
-            # Reorder columns to show most relevant info first
-            if not user_df.empty:
-                columns = ['date', 'ewe', 'english', 'username'] if 'date' in user_df.columns else ['ewe', 'english', 'username']
-                user_df = user_df[columns]
-            
-            st.dataframe(user_df, use_container_width=True)
-        else:
+        # Show encouragement message for new users
+        if entry_count == 0:
             st.info("You haven't made any contributions yet. Use the form below to add your first entry!")
         
         # Data Collection Form
