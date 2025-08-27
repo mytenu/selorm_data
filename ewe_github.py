@@ -194,7 +194,7 @@ if st.session_state.logged_in:
                         client2.append_row([select_date.strftime("%Y-%m-%d"),
                             ewe.strip(),
                             english.strip(),
-                            st.session_state.username,
+                            (st.session_state.username).lower(),
                         ])
                         st.success("Data submitted successfully!")
                         st.balloons()  # Fun visual feedback
@@ -267,5 +267,6 @@ else:
                                 break
                         if not found:
                             st.error("Wrong login details. Please try again.")
+
 
 
